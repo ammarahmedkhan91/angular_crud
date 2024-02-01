@@ -7,7 +7,9 @@
   <button mat-raised-button color="warn" (click)="openDialog()">Add Product</button>
 </mat-toolbar>
 
-<div class="container">
+<h1 *ngIf="!this.products?.length" style="text-align: center;">No Data To Show</h1>
+
+<div class="container" *ngIf="this.products?.length">
   <div style="margin-top: 10px;">
 
     <mat-form-field>
@@ -17,7 +19,6 @@
 
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
-
         <ng-container matColumnDef="productName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
           <td mat-cell *matCellDef="let row"> {{row.productName}} </td>

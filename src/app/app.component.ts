@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    !this.products?.length && this.openDialog();
   }
 
   openDialog() {
@@ -59,6 +60,7 @@ export class AppComponent implements OnInit {
     };
     localStorage.setItem("products", JSON.stringify(this.products));
     this.getProducts();
+    !this.products?.length && this.openDialog();
   }
 
   applyFilter(event: Event) {
